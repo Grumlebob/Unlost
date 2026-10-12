@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="kdtreeDebugWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="400.0" prefWidth="490.0" visible="false" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bfst22.controller.KdTreeDebugMenuController">
+   <children>
+      <Pane prefHeight="617.0" prefWidth="490.0">
+         <children>
+            <Label layoutX="30.0" layoutY="14.0" prefHeight="34.0" prefWidth="109.0" text="TOTAL" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="48.0" text="Total Query Search Time:" />
+            <Label fx:id="totalQueryTimeLabel" layoutX="175.0" layoutY="48.0" text="Label" />
+
+            <Label layoutX="14.0" layoutY="59.0" text="Total Query Draw Time:" />
+            <Label fx:id="queryDrawTime" layoutX="175.0" layoutY="59.0" text="Label" />
+
+            <Label layoutX="14.0" layoutY="92.0" text="NN Time:" />
+            <Label layoutX="30.0" layoutY="165.0" text="WAYS" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="165.0" text="Depth:" />
+            <Label fx:id="depthWays" layoutX="168.0" layoutY="165.0" text="Label"/>
+
+            <Label layoutX="14.0" layoutY="76.0" text="Total Rendered from queries:" />
+
+            <Label fx:id="renderedFromQueryLabel" layoutX="175.0" layoutY="76.0" text="Label" />
+            <Label fx:id="totalBuildTimeLabel" layoutX="175.0" layoutY="113.0" text="Label" />
+
+            <Label layoutX="14.0" layoutY="113.0" text="Total Build Time:" />
+            <Label fx:id="nnTimeLabel" layoutX="175.0" layoutY="95.0" text="Label" />
+            <Label layoutX="15.0" layoutY="190.0" text="Query Search Time:" />
+
+            <Label layoutX="298.0" layoutY="190.0" text="Query Seach Time: "/>
+            <Label layoutX="298.0" layoutY="224.0" text="Rendered From Query: "/>
+
+            <Label fx:id="renderedFromQueryLabelMultipolygons" layoutX="450.0" layoutY="224.0" text="Label"/>
+            <Label fx:id="querySearchTimeMultiPolygons" layoutX="450.0" layoutY="190.0" text="Label"/>
+
+            <Label layoutX="12.0" layoutY="130.0" text="Total insert Time:" />
+            <Label fx:id="totalInsertTimeLabel" layoutX="175.0" layoutY="130.0" text="Label" />
+
+            <Label fx:id="querySeachTimeWays" layoutX="169.0" layoutY="190.0" prefHeight="17.0" prefWidth="39.0" text="Label" />
+
+            <Label layoutX="310.0" layoutY="165.0" text="MULTIPOLYGONS" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="450.0" layoutY="165.0" text="Depth:" />
+            <Label fx:id="depthMultipolygons" layoutX="550.0" layoutY="165.0" text="Depth:"/>
+
+
+
+            <Label layoutX="319.0" layoutY="25.0" text="CANVASTEXTS" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="450.0" layoutY="25.0" text="Depth:"/>
+            <Label fx:id="depthCanvastexts" layoutX="550.0" layoutY="25.0" text="Label"/>
+
+
+            <Label layoutX="12.0" layoutY="224.0" text="Rendered From Query:" />
+            <Label fx:id="renderedFromQueryLabelWays" layoutX="168.0" layoutY="224.0" text="Label" />
+
+            <Label layoutX="16.0" layoutY="241.0" text="Size:" />
+
+            <Label fx:id="multipolygonsSizeLabel" layoutX="391.0" layoutY="241.0" text="Label" />
+
+            <Label fx:id="waysSizeLabel" layoutX="168.0" layoutY="241.0" text="Label" />
+            <Label layoutX="298.0" layoutY="241.0" text="Size:" />
+
+            <Label layoutX="298.0" layoutY="48.0" text="Query Search Time: "/>
+            <Label fx:id="querySearchTimeCanvastexts" layoutX="450.0" layoutY="48.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="59.0" text="Rendered From Query: "/>
+            <Label fx:id="renderedFromQueryCanvastexts" layoutX="450.0" layoutY="59.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="70.0" text="Size: "/>
+            <Label fx:id="canvastextsSizeLabel" layoutX="450.0" layoutY="70.0" text="Label" />
+
+            <Label layoutX="298.0" layoutY="90.0" text="Elements In Tree:" />
+            <Label fx:id="numOfElementsCanvastexts" layoutX="450.0" layoutY="90.0" text="Label" />
+
+            <Label layoutX="298.0" layoutY="110.0" text="Input Size" />
+            <Label fx:id="inputSizeCanvastexts" layoutX="450.0" layoutY="110.0" text="label"/>
+
+            <Label layoutX="298.0" layoutY="260.0" text="Elements In Tree:"/>
+            <Label fx:id="numOfElementsMultiPolygons" layoutX="450.0" layoutY="260.0" text="Label"/>
+
+            <Label layoutX="16.0" layoutY="260.0" text="Elements In Tree:" />
+            <Label fx:id="numOfElementsWays" layoutX="168.0" layoutY="260.0" text="Label"/>
+
+            <Label layoutX="16.0" layoutY="271.0" text="Input Size:" />
+            <Label fx:id="inputSizeWays" layoutX="168.0" layoutY="271.0" text="Label:" />
+
+            <Label layoutX="298.0" layoutY="280.0" text="Input Size:"/>
+            <Label fx:id="inputSizeMultipolygons" layoutX="450.0" layoutY="280.0" text="Label"/>
+
+            <Label layoutX="16.0" layoutY="314" text="Current Implementation Draw Time: "/>
+            <Label fx:id="wayMapDrawTime" layoutX="250.0" layoutY="314" text="Label"/>
+
+            <Label layoutX="16.0" layoutY="282.0" text="Min LeafNode Elements:"/>
+            <Label fx:id="minNumOfElementsWays" layoutX="168.0" layoutY="282.0" text="Label"/>
+
+            <Label layoutX="16.0" layoutY="293.0" text="Max LeafNode Elements:"/>
+            <Label fx:id="maxNumOfElementsWays" layoutX="168.0" layoutY="293.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="121.0" text="Min LeafNode Elements:"/>
+            <Label fx:id="minNumOfElementsCanvastexts" layoutX="450.0" layoutY="121.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="132.0" text="Max LeafNode Elements:"/>
+            <Label fx:id="maxNumOfElementsCanvastexts" layoutX="450.0" layoutY="132.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="291.0" text="Min LeafNode Elements:"/>
+            <Label fx:id="minNumOfElementsMultipolygons" layoutX="450.0" layoutY="291.0" text="Label"/>
+
+            <Label layoutX="298.0" layoutY="302.0" text="Max LeafNode Elements:"/>
+            <Label fx:id="maxNumOfElementsMultipolygons" layoutX="450.0" layoutY="302.0" text="Label"/>
+
+
+            <RadioButton mnemonicParsing="false" layoutX="331.0" layoutY="329.0" prefHeight="34.0" prefWidth="124.0" text="Map" selected="true" onAction="#toggleQueryType">
+               <toggleGroup>
+                  <ToggleGroup fx:id="queryType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="380.0" layoutY="333.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" text="Set" selected="false" toggleGroup="$queryType" onAction="#toggleQueryType">
+
+            </RadioButton>
+         </children>
+      </Pane>
+      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</VBox>

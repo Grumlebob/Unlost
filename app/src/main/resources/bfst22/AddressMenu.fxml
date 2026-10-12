@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="addressMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onContextMenuRequested="#updateUI" pickOnBounds="false" prefHeight="409.0" prefWidth="529.0" spacing="1.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bfst22.controller.AddressMenuController">
+   <children>
+      <HBox pickOnBounds="false" prefHeight="146.0" prefWidth="509.0" style="-fx-background-color: LIGHTBLUE;">
+         <children>
+            <VBox pickOnBounds="false" prefHeight="131.0" prefWidth="302.0">
+               <children>
+                  <TextField fx:id="searchTextField" onContextMenuRequested="#updateUI" onInputMethodTextChanged="#searchInput" onKeyTyped="#searchInput" prefHeight="50.0" prefWidth="200.0" promptText="From/Search" />
+                  <TextField fx:id="searchTextFieldTo" onContextMenuRequested="#updateUI" onInputMethodTextChanged="#searchInputTo" onKeyTyped="#searchInputTo" prefHeight="50.0" prefWidth="500.0" promptText="To" />
+                  <HBox prefHeight="29.0" prefWidth="401.0" style="-fx-background-color: LIGHTBLUE;">
+                     <children>
+                        <Button id="reverseBtn" fx:id="reverseBtn" mnemonicParsing="false" onAction="#reverseSearches" prefHeight="25.0" prefWidth="77.0" styleClass="reverseBtn" stylesheets="@button.css" text="Reverse">
+                           <effect>
+                              <DropShadow height="5.0" radius="2.0" width="5.0" />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <VBox prefHeight="29.0" prefWidth="213.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="204.0" text="Tip: Ctrl+click: From - Shift+click: To" underline="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox onContextMenuRequested="#updateUI" onMouseClicked="#updateUI" pickOnBounds="false" prefHeight="131.0" prefWidth="165.0" style="-fx-background-color: LIGHTBLUE;">
+               <children>
+                  <Button id="searchBtn" mnemonicParsing="false" onAction="#getAddressRouteText" styleClass="searchBtn" stylesheets="@button.css" text="Search Address">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow height="5.0" radius="2.0" width="5.0" />
+                     </effect></Button>
+                  <RadioButton fx:id="carRadiobtn" mnemonicParsing="false" onAction="#getTransportType" prefHeight="17.0" prefWidth="98.0" selected="true" text="Car">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="transport" />
+                     </toggleGroup>
+                     <VBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" onAction="#getTransportType" text="Bike" toggleGroup="$transport">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></RadioButton>
+                  <RadioButton mnemonicParsing="false" onAction="#getTransportType" text="Walk" toggleGroup="$transport">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></RadioButton>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <HBox prefHeight="131.0" prefWidth="145.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <VBox prefHeight="133.0" prefWidth="114.0">
+                           <children>
+                              <Button id="reverseBtn" mnemonicParsing="false" onAction="#searchPointOfInterest" prefHeight="24.0" prefWidth="95.0" styleClass="reverseBtn" stylesheets="@button.css" text="Show POI">
+                                 <effect>
+                                    <DropShadow height="5.0" radius="2.0" width="5.0" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <VBox fx:id="addressExtraSettings" pickOnBounds="false" prefHeight="94.0" prefWidth="95.0" style="-fx-background-color: LIGHTBLUE;">
+                                 <children>
+                                    <Label text="Path should be:">
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" onAction="#getPathmode" selected="true" text="Fastest">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="pathmode" />
+                                       </toggleGroup>
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#getPathmode" text="Shortest" toggleGroup="$pathmode">
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <Label text="Using:">
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton mnemonicParsing="false" onAction="#getAStarmode" selected="true" text="A*">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="dijkstramode" />
+                                       </toggleGroup>
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#getAStarmode" text="Dijkstra" toggleGroup="$dijkstramode">
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="addressMatchesList" pickOnBounds="false" prefHeight="88.0" prefWidth="370.0">
+         <content>
+            <AnchorPane pickOnBounds="false">
+               <children>
+                  <VBox fx:id="outputArea" pickOnBounds="false">
+                     <children>
+                        <ListView fx:id="listOutput" onContextMenuRequested="#setCoordsOfFromAddress" onDragDetected="#setCoordsOfFromAddress" onMousePressed="#setCoordsOfFromAddress" pickOnBounds="false" prefHeight="65.0" prefWidth="527.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <VBox fx:id="routeBox" pickOnBounds="false" prefHeight="218.0" prefWidth="406.0">
+         <children>
+            <HBox pickOnBounds="false" prefHeight="29.0" prefWidth="370.0" style="-fx-background-color: #b7e4ff;">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#hideAddresses" style="-fx-background-color: PINK;" text="hide" />
+                  <Label text="Total Distance:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="3.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="distanceLabel" text="0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="3.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Total Time:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="3.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="travelTimeLabel" text="0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="3.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TextArea fx:id="routeTextField" editable="false" prefHeight="200.0" prefWidth="200.0">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </TextArea>
+         </children>
+      </VBox>
+   </children>
+</VBox>

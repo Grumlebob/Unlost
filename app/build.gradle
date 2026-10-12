@@ -1,0 +1,68 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.11'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "18"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+}
+
+jacoco{
+    toolVersion = "0.8.7"
+}
+
+test{
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport{
+    dependsOn test
+    reports{
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainClass = 'bfst22.App'
+    applicationDefaultJvmArgs = ["-Xms1024m", "-Xmx6144m"]
+}
+
+tasks.withType(JavaExec) {
+    jvmArgs = ['-Xms512m', '-Xmx32768m']
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest {
+        attributes 'Main-Class': 'bfst22.Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    into 'resources', {
+        from 'resources'
+    }
+}

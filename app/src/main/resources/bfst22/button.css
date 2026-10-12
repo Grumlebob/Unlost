@@ -1,0 +1,25 @@
+.reverseBtn {
+    -fx-font-weight:bold;
+    -fx-background-color: #e1b23b;
+    -fx-display:inline-block;
+    -fx-color:#ffffff;
+    -fx-text-decoration:none;
+
+}
+.reverseBtn:hover {
+    -fx-background-color: #ad8c5a;
+    -fx-transition: 0.7s;
+}
+
+.searchBtn{
+    -fx-font-weight:bold;
+    -fx-background-color: #42e72c;
+    -fx-display:inline-block;
+    -fx-color:#ffffff;
+    -fx-text-decoration:none;
+}
+
+.searchBtn:hover {
+    -fx-background-color: #65b94b;
+    -fx-transition: 0.7s;
+}
